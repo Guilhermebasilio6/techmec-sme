@@ -6,10 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
 @Entity
 public class Cliente {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +28,7 @@ public class Cliente {
 
     @NotBlank(message = "obrigatorio")
     private int nivelAcesso;
+    private String login;
 
     public Cliente() {}
 
@@ -44,6 +47,9 @@ public class Cliente {
     public void redefinirSenha(String novaSenha){
         this.senha = novaSenha;
     }
+
+
+
 
 }
 
